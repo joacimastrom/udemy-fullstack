@@ -1,5 +1,5 @@
 {
-  "name": "fullstack-node-react",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,9 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -22,7 +24,8 @@
     "passport-google-oauth20": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.7.0",
+    "concurrently": "^4.0.1",
+    "eslint": "5.6.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
