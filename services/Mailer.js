@@ -11,7 +11,7 @@ class Mailer extends helper.Mail {
     this.from_email = new helper.Email('no-reply@testmail.com');
     this.subject = subject;
     this.body = new helper.Content('text/html', content);
-    this.recipients = this.formatAddresses(recipients);
+    this.formatAddresses(recipients);
 
     this.addContent(this.body);
     this.addClickTracking();
@@ -19,7 +19,7 @@ class Mailer extends helper.Mail {
   }
 
   formatAddresses(recipients) {
-    return recipients.map(({ email }) => new helper.Email(email));
+    this.recipients = recipients.map(({ email }) => new helper.Email(email));
   }
 
   addClickTracking() {
